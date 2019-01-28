@@ -190,7 +190,7 @@ int main() {
 	serverAddress.sin_port = htons(9876);
 	serverAddress.sin_family = AF_INET;
 
-	cout << "[ C++ 멀티 채팅 서버 가동 ]" << endl;
+	cout << "[ C++ 오목 게임 서버 가동 ]" << endl;
 	bind(serverSocket, (SOCKADDR*)&serverAddress, sizeof(serverAddress));
 	listen(serverSocket, 32);
 
