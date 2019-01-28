@@ -104,7 +104,6 @@ void putClient(int roomID, int x, int y) {
 void ServerThread(Client *client) {
 	char *sent = new char[256];
 	char *received = new char[256];
-	char *message = new char[256];
 	int size = 0;
 	while (true) {
 		ZeroMemory(received, 256);
@@ -160,9 +159,9 @@ void ServerThread(Client *client) {
 			}
 		}
 		else {
-			ZeroMemory(message, 256);
-			sprintf(message, "클라이언트 [%i]의 연결이 끊어졌습니다.", client->getClientID());
-			cout << message << endl;
+			ZeroMemory(sent, 256);
+			sprintf(sent, "클라이언트 [%i]의 연결이 끊어졌습니다.", client->getClientID());
+			cout << sent << endl;
 			/* 게임에서 나간 플레이어를 찾기 */
 			for (int i = 0; i < connections.size(); i++) {
 				if (connections[i].getClientID() == client->getClientID()) {
@@ -199,12 +198,6 @@ int main() {
 		SOCKET clientSocket = socket(AF_INET, SOCK_STREAM, NULL);
 		if (clientSocket = accept(serverSocket, (SOCKADDR*)&serverAddress, &addressLength)) {
 			Client *client = new Client(nextID, clientSocket);
-			char *id = new char[64];
-			ZeroMemory(id, 64);
-			sprintf(id, "%i", nextID);
-			char *clientCount = new char[64];
-			ZeroMemory(clientCount, 64);
-			sprintf(clientCount, "%d", connections.size() + 1);
 			cout << "[ 새로운 사용자 접속 ]" << endl;
 			CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)ServerThread, (LPVOID)client, NULL, NULL);
 			connections.push_back(*client);
