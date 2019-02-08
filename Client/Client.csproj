@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AIPlayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AIPlayForm.Designer.cs">
+      <DependentUpon>AIPlayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     <Compile Include="SinglePlayForm.Designer.cs">
       <DependentUpon>SinglePlayForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AIPlayForm.resx">
+      <DependentUpon>AIPlayForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
