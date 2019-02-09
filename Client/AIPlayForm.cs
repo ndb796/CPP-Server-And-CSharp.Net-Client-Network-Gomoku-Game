@@ -1390,7 +1390,7 @@ namespace Client
             // 만약에 현재 최대 깊이인 limit에 도달한 경우
             if (level == limit)
             {
-                // 플레이어의 평가 가치에서 AI의 평가 가치를 뺀 수를 반환 (플레이어의 수 가치를 약간 더 높게 보기)
+                // AI의 평가 가치에서 플레이어의 평가 가치를 뺀 수를 반환
                 return evaluate(aiPlayer) - evaluate(userPlayer);
             }
             // MAX 부분에 해당하는 경우
